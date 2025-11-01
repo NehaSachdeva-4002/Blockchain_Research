@@ -1,0 +1,420 @@
+{% extends "base.html" %}
+
+{% block title %}Hybrid Model - Blockchain Scalability{% endblock %}
+
+{% block content %}
+<div class="hero" style="padding: 2rem;">
+    <div class="container">
+        <h1>Hybrid Scalability Model</h1>
+        <p class="subtitle">Combining Layer 2 and Sharding for exponential scaling</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Overview -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">The Future: Hybrid Architecture</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                The hybrid model represents the convergence of Layer 2 and sharding approaches, offering the best 
+                of both worlds. By implementing Layer 2 rollups on top of a sharded base layer, networks can achieve 
+                <strong>multiplicative scaling</strong> rather than additive improvements. This architecture addresses 
+                the blockchain trilemma more effectively than either solution alone.
+            </p>
+            <div class="alert alert-success mt-3">
+                <strong>Research Conclusion:</strong> A hybrid model combining Layer 2 implementations with sharding 
+                provides the most effective path forward for achieving scalable, secure, and decentralized blockchain systems, 
+                with potential throughput exceeding 100,000 TPS.
+            </div>
+        </div>
+    </div>
+
+    <!-- Exponential Scaling -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Exponential Scaling Potential</h2>
+            <p class="card-subtitle">Multiplicative effect of combining both approaches</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="hybridScalingChart"></canvas>
+            </div>
+            
+            <div class="grid grid-3 mt-4">
+                <div class="stat-card" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                    <div class="stat-label">Layer 1 Only</div>
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <div class="stat-label">+ Sharding (64 shards)</div>
+                    <div class="stat-value">6,400</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                    <div class="stat-label">+ Layer 2 on Each Shard</div>
+                    <div class="stat-value">100,000+</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-3">
+                <strong>Calculation:</strong> 64 shards × 100 TPS per shard × 50x Layer 2 multiplier = 320,000 TPS theoretical maximum
+            </div>
+        </div>
+    </div>
+
+    <!-- Architecture Diagram -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Hybrid Architecture Layers</h2>
+        </div>
+        <div class="card-body">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 1rem; color: white;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Layered Hybrid Architecture</h3>
+                    <p style="opacity: 0.9;">From base layer to application layer</p>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- Layer 3: Applications -->
+                    <div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Layer 3: Applications</h4>
+                                <p style="opacity: 0.9; margin: 0;">DeFi, NFTs, Gaming, Social, DAOs</p>
+                            </div>
+                            <div style="font-size: 2rem;">🎯</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Layer 2: Rollups -->
+                    <div style="background: rgba(255, 255, 255, 0.25); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Layer 2: Rollups (50x scaling)</h4>
+                                <p style="opacity: 0.9; margin: 0;">Optimistic & ZK Rollups on each shard</p>
+                            </div>
+                            <div style="font-size: 2rem;">⚡</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Layer 1: Sharding -->
+                    <div style="background: rgba(255, 255, 255, 0.3); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Layer 1: Sharded Base (64 shards)</h4>
+                                <p style="opacity: 0.9; margin: 0;">Parallel shard chains coordinated by beacon chain</p>
+                            </div>
+                            <div style="font-size: 2rem;">🔗</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Base: Consensus -->
+                    <div style="background: rgba(255, 255, 255, 0.35); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Base: Consensus Layer</h4>
+                                <p style="opacity: 0.9; margin: 0;">Proof of Stake, Validator Network, Global Security</p>
+                            </div>
+                            <div style="font-size: 2rem;">🛡️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits & Trade-offs -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Hybrid Model: Benefits & Trade-offs</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <h3 style="font-size: 1.25rem; color: #10b981; margin-bottom: 1rem;">✅ Key Benefits</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Exponential Scaling:</strong> Multiplicative throughput gains (100,000+ TPS)</li>
+                        <li><strong>Layered Security:</strong> Multiple security mechanisms at different layers</li>
+                        <li><strong>Flexibility:</strong> Choose optimal Layer 2 solution per shard</li>
+                        <li><strong>Cost Efficiency:</strong> Combined cost reductions from both approaches</li>
+                        <li><strong>Balanced Trilemma:</strong> Better optimization across all three dimensions</li>
+                        <li><strong>Future-Proof:</strong> Modular design allows continuous upgrades</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; color: #f59e0b; margin-bottom: 1rem;">⚠️ Challenges</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Complexity:</strong> Most complex architecture to implement and maintain</li>
+                        <li><strong>Coordination:</strong> Cross-shard + cross-layer communication overhead</li>
+                        <li><strong>Development Time:</strong> Requires both sharding and Layer 2 maturity</li>
+                        <li><strong>User Experience:</strong> More layers can complicate wallet interactions</li>
+                        <li><strong>Security Surface:</strong> More components mean more potential attack vectors</li>
+                        <li><strong>Ecosystem Fragmentation:</strong> Risk of splitting liquidity and users</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trilemma Optimization -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Blockchain Trilemma: Hybrid Optimization</h2>
+            <p class="card-subtitle">How the hybrid model balances all three dimensions</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="hybridTrilemmaChart"></canvas>
+            </div>
+            <div class="alert alert-success mt-3">
+                <strong>Optimal Balance:</strong> The hybrid model scores 95 in scalability, 92 in security, 
+                and 88 in decentralization—the best overall balance among all approaches.
+            </div>
+        </div>
+    </div>
+
+    <!-- Real-World Implementations -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Emerging Hybrid Implementations</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="card hover-lift" style="background: #fef3c7; border: 2px solid #f59e0b;">
+                    <div class="card-body">
+                        <h3 style="color: #92400e; font-size: 1.1rem; margin-bottom: 0.5rem;">Solana + Layer 2</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                            High-performance base layer with emerging rollup solutions for specific use cases
+                        </p>
+                        <span class="badge badge-warning">Emerging</span>
+                    </div>
+                </div>
+                
+                <div class="card hover-lift" style="background: #dbeafe; border: 2px solid #3b82f6;">
+                    <div class="card-body">
+                        <h3 style="color: #1e40af; font-size: 1.1rem; margin-bottom: 0.5rem;">Ethereum 2.0 + Rollups</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                            Planned sharding implementation with existing mature Layer 2 ecosystem
+                        </p>
+                        <span class="badge badge-primary">In Development</span>
+                    </div>
+                </div>
+                
+                <div class="card hover-lift" style="background: #dcfce7; border: 2px solid #10b981;">
+                    <div class="card-body">
+                        <h3 style="color: #047857; font-size: 1.1rem; margin-bottom: 0.5rem;">Shardeum</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                            Native hybrid design with dynamic state sharding and built-in Layer 2 compatibility
+                        </p>
+                        <span class="badge badge-success">Testnet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hybrid Calculator -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Hybrid Model Performance Calculator</h2>
+            <p class="card-subtitle">See exponential scaling in action</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label class="form-label" for="hybridShards">Number of Shards</label>
+                    <input type="range" id="hybridShards" class="slider" 
+                           min="2" max="128" step="2" value="32">
+                    <span class="slider-value" id="hybridShardsDisplay">32</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="layer2Multiplier">Layer 2 Multiplier</label>
+                    <input type="range" id="layer2Multiplier" class="slider" 
+                           min="10" max="100" step="5" value="50">
+                    <span class="slider-value" id="layer2MultiplierDisplay">50x</span>
+                </div>
+            </div>
+            
+            <div id="hybridResults" class="mt-4">
+                <!-- Calculator results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Hybrid Model Adoption Roadmap</h2>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="adoptionTimelineChart"></canvas>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Implementation Phases</h3>
+                <div style="position: relative; padding-left: 2rem;">
+                    <div style="position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: #e5e7eb;"></div>
+                    
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; left: -1.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: #10b981;"></div>
+                        <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #10b981;">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Phase 1: Layer 2 Maturation (2023-2024)</h4>
+                            <p style="font-size: 0.95rem; margin: 0;">Optimistic and ZK rollups reach production stability, EVM compatibility improves</p>
+                        </div>
+                    </div>
+                    
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; left: -1.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: #3b82f6;"></div>
+                        <div style="background: #eff6ff; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #3b82f6;">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Phase 2: Sharding Launch (2025-2026)</h4>
+                            <p style="font-size: 0.95rem; margin: 0;">Ethereum 2.0 sharding goes live, other chains implement sharding solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; left: -1.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: #f59e0b;"></div>
+                        <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #f59e0b;">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Phase 3: Hybrid Integration (2026-2027)</h4>
+                            <p style="font-size: 0.95rem; margin: 0;">Layer 2 solutions deploy on sharded chains, achieving multiplicative scaling</p>
+                        </div>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <div style="position: absolute; left: -1.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: #8b5cf6;"></div>
+                        <div style="background: #f5f3ff; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #8b5cf6;">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Phase 4: Mainstream Adoption (2027+)</h4>
+                            <p style="font-size: 0.95rem; margin: 0;">100,000+ TPS achieved, Web3 applications support billions of users globally</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="card-body text-center">
+            <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">Research Conclusion</h2>
+            <p style="font-size: 1.1rem; opacity: 0.95; max-width: 800px; margin: 0 auto 2rem;">
+                The hybrid model combining Layer 2 implementations with sharding represents the most promising 
+                path toward solving the blockchain trilemma. By leveraging the complementary strengths of both 
+                approaches, blockchain networks can achieve unprecedented scalability while maintaining security 
+                and decentralization—paving the way for true Web3 global adoption.
+            </p>
+            <div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px); margin-bottom: 2rem;">
+                <p style="font-size: 1.25rem; font-weight: 600; margin: 0;">
+                    "A hybrid model combining both may provide the most effective path forward for achieving 
+                    scalable, secure, and decentralized blockchain systems."
+                </p>
+                <p style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.9;">— Research Paper Abstract</p>
+            </div>
+            <a href="/comparison" class="btn" style="background: white; color: #667eea; font-weight: 700; padding: 1rem 2rem;">
+                Explore Full Comparison →
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Create hybrid scaling chart
+        const scalingData = {
+            labels: ['Layer 1', 'Layer 1 + Sharding', 'Layer 1 + Layer 2', 'Hybrid (Both)'],
+            values: [15, 6400, 750, 320000],
+            colors: [CHART_COLORS.layer1, CHART_COLORS.sharding, CHART_COLORS.layer2, CHART_COLORS.hybrid]
+        };
+        ChartManager.createTPSComparisonChart('hybridScalingChart', scalingData);
+        
+        // Create trilemma comparison
+        const trilemmaData = await API.getTrilemmaData();
+        ChartManager.createTrilemmaRadarChart('hybridTrilemmaChart', {
+            'Layer 1': trilemmaData.layer1_ethereum,
+            'Layer 2': trilemmaData.layer2_optimistic,
+            'Sharding': trilemmaData.sharding_ethereum,
+            'Hybrid': trilemmaData.hybrid_model
+        });
+        
+        // Create adoption timeline
+        const timelineData = {
+            years: ['2020', '2022', '2024', '2026', '2028', '2030'],
+            baseLayer: [15, 15, 15, 15, 15, 15],
+            layer2: [0, 500, 2000, 3000, 4000, 5000],
+            sharding: [0, 0, 1000, 6400, 12800, 25000]
+        };
+        ChartManager.createThroughputEvolutionChart('adoptionTimelineChart', timelineData);
+        
+        // Initialize hybrid calculator
+        const shardSlider = new SliderHandler('hybridShards', 'hybridShardsDisplay',
+            Utils.debounce(calculateHybridPerformance, 500));
+        const multiplierSlider = new SliderHandler('layer2Multiplier', 'layer2MultiplierDisplay',
+            Utils.debounce(calculateHybridPerformance, 500));
+        
+        async function calculateHybridPerformance() {
+            const numShards = shardSlider.getValue();
+            const multiplier = multiplierSlider.getValue();
+            
+            const results = await API.calculateHybrid(1000000, numShards, multiplier);
+            
+            const baseTPS = 15;
+            const shardedTPS = results.base_sharded_tps;
+            const hybridTPS = results.total_hybrid_tps;
+            
+            const resultsHtml = `
+                <div class="grid grid-3">
+                    <div class="stat-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-label">Base + Sharding</div>
+                        <div class="stat-value">${Utils.formatNumber(shardedTPS, 0)}</div>
+                        <div class="stat-label">TPS</div>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-label">Hybrid Total</div>
+                        <div class="stat-value">${Utils.formatNumber(hybridTPS, 0)}</div>
+                        <div class="stat-label">TPS</div>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <div class="stat-label">vs. Layer 1</div>
+                        <div class="stat-value">${Utils.formatNumber(hybridTPS / baseTPS, 0)}x</div>
+                        <div class="stat-label">Improvement</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding: 1.5rem; background: #f0fdf4; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+                    <h4 style="color: #047857; margin-bottom: 0.5rem;">🚀 Exponential Scaling Achieved!</h4>
+                    <p style="margin: 0; color: #065f46;">
+                        With ${numShards} shards and ${multiplier}x Layer 2 scaling, your hybrid network can handle 
+                        <strong>${Utils.formatNumber(hybridTPS, 0)} transactions per second</strong>—enough to support 
+                        ${(hybridTPS / 5).toFixed(0)} daily active users making 5 transactions each.
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('hybridResults').innerHTML = resultsHtml;
+        }
+        
+        // Initial calculation
+        calculateHybridPerformance();
+        
+        // Update multiplier display format
+        document.getElementById('layer2Multiplier').addEventListener('input', (e) => {
+            document.getElementById('layer2MultiplierDisplay').textContent = e.target.value + 'x';
+        });
+        
+    } catch (error) {
+        console.error('Error loading hybrid data:', error);
+        showNotification('Error loading data', 'error');
+    }
+});
+</script>
+{% endblock %}

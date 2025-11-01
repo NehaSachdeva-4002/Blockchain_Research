@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blockchain Scalability Challenges and Solutions - Research by Neha Sachdeva">
+    <meta name="author" content="Neha Sachdeva">
+    <title>{% block title %}Blockchain Scalability Showcase{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <span>⛓️</span>
+                <span>Blockchain Scalability</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/comparison">Comparison</a></li>
+                <li><a href="/layer2">Layer 2</a></li>
+                <li><a href="/sharding">Sharding</a></li>
+                <li><a href="/hybrid">Hybrid</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                <strong>Research Paper:</strong> Blockchain Scalability Challenges and Solutions<br>
+                <strong>Author:</strong> {{ author or 'Neha Sachdeva' }}<br>
+                <strong>Topic:</strong> Comparative Analysis of Layer 2 Implementations and Sharding
+            </p>
+            <p class="footer-text mt-2">
+                © 2025 Blockchain Scalability Showcase. Built with Flask & Chart.js
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/interactions.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

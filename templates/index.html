@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Blockchain Scalability Showcase{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="fade-in">Blockchain Scalability Challenges and Solutions</h1>
+        <p class="subtitle fade-in">A Comparative Analysis of Layer 2 Implementations and Sharding</p>
+        <p class="author fade-in">Research by Neha Sachdeva</p>
+    </div>
+</section>
+
+<!-- Abstract Section -->
+<div class="container">
+    <div class="card scale-up">
+        <div class="card-header">
+            <h2 class="card-title">Abstract</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                Blockchain technologies are transforming many landscapes including finance, healthcare, and education. 
+                Despite its widespread usability, blockchain faces continuous scalability issues, creating the blockchain 
+                trilemma of balancing <strong>decentralization</strong>, <strong>security</strong>, and <strong>performance</strong>.
+            </p>
+            <p class="mt-2">
+                This research explores two prominent scalability approaches—<strong>Layer 2 implementations</strong> and 
+                <strong>sharding</strong>—and provides a comparative analysis of their effectiveness, limitations, and 
+                future potential. The study highlights the trade-offs between these approaches and argues that a 
+                <strong>hybrid model</strong> combining both may provide the most effective path forward for achieving 
+                scalable, secure, and decentralized blockchain systems.
+            </p>
+        </div>
+    </div>
+
+    <!-- Key Metrics Overview -->
+    <div class="card slide-in-left">
+        <div class="card-header">
+            <h2 class="card-title">Key Performance Metrics</h2>
+            <p class="card-subtitle">Comparing blockchain scalability solutions</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="stat-card stagger-item">
+                    <div class="stat-label">Base Layer (Ethereum)</div>
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+                <div class="stat-card stagger-item" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                    <div class="stat-label">Layer 2 Rollups</div>
+                    <div class="stat-value">2,000-4,000</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+                <div class="stat-card stagger-item" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <div class="stat-label">Sharding (64 shards)</div>
+                    <div class="stat-value">6,400+</div>
+                    <div class="stat-label">TPS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blockchain Trilemma -->
+    <div class="card slide-in-right">
+        <div class="card-header">
+            <h2 class="card-title">The Blockchain Trilemma</h2>
+            <p class="card-subtitle">Balancing three critical dimensions</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="trilemmaChart"></canvas>
+            </div>
+            <div class="alert alert-info mt-3">
+                <strong>Key Insight:</strong> No current solution perfectly balances all three dimensions. 
+                Layer 2 and sharding take different approaches to optimize the trilemma.
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Comparison -->
+    <div class="card fade-in">
+        <div class="card-header">
+            <h2 class="card-title">Scalability Solutions at a Glance</h2>
+        </div>
+        <div class="card-body">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Approach</th>
+                        <th>Throughput</th>
+                        <th>Security Model</th>
+                        <th>Complexity</th>
+                        <th>Maturity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Layer 2 Rollups</strong></td>
+                        <td><span class="metric-value">2,000-4,000 TPS</span></td>
+                        <td>Inherits L1 security</td>
+                        <td><span class="badge badge-warning">Medium-High</span></td>
+                        <td><span class="badge badge-success">Production Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sharding</strong></td>
+                        <td><span class="metric-value">6,400+ TPS</span></td>
+                        <td>Distributed validators</td>
+                        <td><span class="badge badge-danger">Very High</span></td>
+                        <td><span class="badge badge-warning">In Development</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hybrid Model</strong></td>
+                        <td><span class="metric-value">100,000+ TPS</span></td>
+                        <td>Layered security</td>
+                        <td><span class="badge badge-danger">Very High</span></td>
+                        <td><span class="badge badge-primary">Emerging</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Research Highlights -->
+    <div class="grid grid-2">
+        <div class="card hover-lift">
+            <div class="card-header">
+                <h3 class="card-title">📊 Layer 2 Solutions</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Key Benefits:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>10-100x cost reduction</li>
+                    <li>Inherits base layer security</li>
+                    <li>Rapid deployment and adoption</li>
+                    <li>Modular and flexible architecture</li>
+                </ul>
+                <p class="mt-2"><strong>Trade-offs:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Withdrawal delays (optimistic rollups)</li>
+                    <li>Bridge security concerns</li>
+                    <li>Centralization risks (sequencers)</li>
+                </ul>
+                <a href="/layer2" class="btn btn-primary mt-3" style="width: 100%;">Explore Layer 2 →</a>
+            </div>
+        </div>
+
+        <div class="card hover-lift">
+            <div class="card-header">
+                <h3 class="card-title">🔗 Sharding Solutions</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Key Benefits:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Linear scalability with shard count</li>
+                    <li>Maintains decentralization</li>
+                    <li>Protocol-level solution</li>
+                    <li>19.5% throughput improvement (proven)</li>
+                </ul>
+                <p class="mt-2"><strong>Trade-offs:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Complex implementation</li>
+                    <li>Cross-shard communication overhead</li>
+                    <li>Security challenges (shard takeover)</li>
+                </ul>
+                <a href="/sharding" class="btn btn-success mt-3" style="width: 100%;">Explore Sharding →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="card text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="card-body">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Compare Solutions?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem;">
+                Explore interactive comparisons, visualizations, and performance calculators
+            </p>
+            <a href="/comparison" class="btn" style="background: white; color: #667eea; font-weight: 700; padding: 1rem 2rem; font-size: 1.1rem;">
+                View Interactive Comparison Dashboard →
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+// Initialize trilemma chart on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const trilemmaData = await API.getTrilemmaData();
+        
+        // Prepare data for radar chart
+        const chartData = {
+            'Layer 1 (Bitcoin)': trilemmaData.layer1_bitcoin,
+            'Layer 2 (Optimistic)': trilemmaData.layer2_optimistic,
+            'Layer 2 (ZK)': trilemmaData.layer2_zk,
+            'Sharding': trilemmaData.sharding_ethereum,
+            'Hybrid Model': trilemmaData.hybrid_model
+        };
+        
+        ChartManager.createTrilemmaRadarChart('trilemmaChart', chartData);
+    } catch (error) {
+        console.error('Error loading trilemma data:', error);
+    }
+});
+</script>
+{% endblock %}

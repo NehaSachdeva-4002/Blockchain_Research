@@ -1,0 +1,378 @@
+{% extends "base.html" %}
+
+{% block title %}Sharding Solutions - Blockchain Scalability{% endblock %}
+
+{% block content %}
+<div class="hero" style="padding: 2rem;">
+    <div class="container">
+        <h1>Blockchain Sharding Solutions</h1>
+        <p class="subtitle">Parallel processing for linear scalability</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Overview -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">What is Sharding?</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                Sharding is a database partitioning technique adapted for blockchain that splits the network into 
+                smaller partitions called "shards." Each shard processes transactions in parallel, allowing the network 
+                to scale linearly as more shards are added. Rather than every node validating every transaction, 
+                nodes are assigned to specific shards, enabling simultaneous transaction processing.
+            </p>
+            <div class="alert alert-info mt-3">
+                <strong>Key Principle:</strong> Divide and conquer—split the blockchain into parallel chains that 
+                process transactions simultaneously while maintaining network-wide security.
+            </div>
+        </div>
+    </div>
+
+    <!-- Sharding Performance -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Linear Scalability</h2>
+            <p class="card-subtitle">Throughput increases proportionally with shard count</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="shardingScalabilityChart"></canvas>
+            </div>
+            <div class="alert alert-success mt-3">
+                <strong>Research Finding:</strong> Sharding implementations show 19.5% throughput improvement 
+                and 25% latency reduction compared to base layer performance.
+            </div>
+        </div>
+    </div>
+
+    <!-- Sharding Projects -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Sharding Implementations</h2>
+        </div>
+        <div class="card-body">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Status</th>
+                        <th>Shards</th>
+                        <th>TPS per Shard</th>
+                        <th>Total TPS</th>
+                        <th>Consensus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ethereum 2.0</strong></td>
+                        <td><span class="badge badge-warning">In Development</span></td>
+                        <td>64</td>
+                        <td>100</td>
+                        <td>6,400</td>
+                        <td>Proof of Stake</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zilliqa</strong></td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>8</td>
+                        <td>312</td>
+                        <td>2,500</td>
+                        <td>pBFT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEAR Protocol</strong></td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>Dynamic</td>
+                        <td>100</td>
+                        <td>100,000+</td>
+                        <td>Nightshade (PoS)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elrond (MultiversX)</strong></td>
+                        <td><span class="badge badge-success">Live</span></td>
+                        <td>3</td>
+                        <td>5,000</td>
+                        <td>15,000</td>
+                        <td>Secure PoS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- How Sharding Works -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Sharding Architecture</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">🔗 Beacon Chain (Coordinator)</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Manages shard chains and validators</li>
+                        <li>Handles random validator assignment</li>
+                        <li>Coordinates cross-shard communication</li>
+                        <li>Maintains global consensus</li>
+                        <li>Stores network state and shard headers</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">⚡ Shard Chains</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Process transactions independently</li>
+                        <li>Maintain their own state and history</li>
+                        <li>Run parallel consensus mechanisms</li>
+                        <li>Communicate via beacon chain</li>
+                        <li>Achieve local finality quickly</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-4" style="padding: 1.5rem; background: #f9fafb; border-radius: 0.5rem;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Transaction Flow</h3>
+                <ol style="margin-left: 1.5rem;">
+                    <li><strong>Transaction Submission:</strong> User submits transaction to assigned shard</li>
+                    <li><strong>Shard Processing:</strong> Validators in that shard process and validate transaction</li>
+                    <li><strong>Local Consensus:</strong> Shard reaches consensus on transaction validity</li>
+                    <li><strong>Cross-Shard (if needed):</strong> Beacon chain coordinates multi-shard transactions</li>
+                    <li><strong>Finality:</strong> Transaction is finalized and added to shard's history</li>
+                    <li><strong>Beacon Update:</strong> Shard header is posted to beacon chain</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cross-Shard Communication -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Cross-Shard Communication Challenge</h2>
+            <p class="card-subtitle">The complexity of coordinating transactions across shards</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="crossShardLatencyChart"></canvas>
+            </div>
+            
+            <div class="grid grid-2 mt-4">
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">✅ Intra-Shard Transactions</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Fast processing (single shard)</li>
+                        <li>No coordination overhead</li>
+                        <li>Low latency (~1-2 seconds)</li>
+                        <li>Simple validation</li>
+                        <li>Optimal performance</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">⚠️ Cross-Shard Transactions</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Requires coordination (beacon chain)</li>
+                        <li>Multi-phase commit protocol</li>
+                        <li>Higher latency (1.5x-2x slower)</li>
+                        <li>Complex validation</li>
+                        <li>Potential for race conditions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert alert-warning mt-3">
+                <strong>Trade-off:</strong> Approximately 20% of transactions require cross-shard communication, 
+                resulting in 1.5x latency overhead. Optimizing shard assignment can minimize this impact.
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Considerations -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Security Mechanisms</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="card" style="background: #f0fdf4; border: 2px solid #10b981;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; color: #047857; margin-bottom: 0.5rem;">🎲 Random Assignment</h3>
+                        <p style="font-size: 0.95rem;">
+                            Validators are randomly assigned to shards using verifiable randomness, preventing 
+                            attackers from concentrating stake in a single shard.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #eff6ff; border: 2px solid #3b82f6;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; color: #1e40af; margin-bottom: 0.5rem;">🔄 Validator Rotation</h3>
+                        <p style="font-size: 0.95rem;">
+                            Regular validator shuffling between shards ensures no group can maintain control 
+                            long enough to execute attacks.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #fef3c7; border: 2px solid #f59e0b;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; color: #92400e; margin-bottom: 0.5rem;">🛡️ Fraud Proofs</h3>
+                        <p style="font-size: 0.95rem;">
+                            Invalid shard blocks can be challenged via fraud proofs, penalizing malicious validators 
+                            and reverting invalid state.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sharding Calculator -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Sharding Performance Calculator</h2>
+            <p class="card-subtitle">See how throughput scales with shard count</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label class="form-label" for="shardCount">Number of Shards</label>
+                    <input type="range" id="shardCount" class="slider" 
+                           min="2" max="128" step="2" value="64">
+                    <span class="slider-value" id="shardCountDisplay">64</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="tpsPerShard">TPS per Shard</label>
+                    <input type="range" id="tpsPerShard" class="slider" 
+                           min="50" max="500" step="10" value="100">
+                    <span class="slider-value" id="tpsPerShardDisplay">100</span>
+                </div>
+            </div>
+            
+            <div id="shardingResults" class="mt-4">
+                <!-- Calculator results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison with Layer 2 -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Sharding vs Layer 2: When to Choose Which?</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #10b981;">Choose Sharding When:</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Building new blockchain from scratch</li>
+                        <li>Need protocol-level scalability</li>
+                        <li>Maximum decentralization is critical</li>
+                        <li>Long-term ecosystem planning</li>
+                        <li>Can handle complex implementation</li>
+                        <li>Willing to wait for maturity</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #8b5cf6;">Choose Layer 2 When:</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Need immediate scaling solution</li>
+                        <li>Building on existing blockchain (Ethereum)</li>
+                        <li>Cost reduction is top priority</li>
+                        <li>Faster time to market</li>
+                        <li>Modular architecture preferred</li>
+                        <li>Want proven production solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="grid grid-2">
+        <a href="/layer2" class="btn btn-outline" style="padding: 1rem; font-size: 1rem;">
+            ← Explore Layer 2 Solutions
+        </a>
+        <a href="/hybrid" class="btn btn-primary" style="padding: 1rem; font-size: 1rem;">
+            Explore Hybrid Model →
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const metrics = await API.getShardingMetrics();
+        
+        // Create linear scalability chart
+        const scalabilityData = {
+            labels: ['1 Shard', '8 Shards', '16 Shards', '32 Shards', '64 Shards', '128 Shards'],
+            values: [100, 800, 1600, 3200, 6400, 12800]
+        };
+        ChartManager.createTPSComparisonChart('shardingScalabilityChart', scalabilityData);
+        
+        // Create cross-shard latency chart
+        const latencyData = {
+            labels: ['Intra-Shard', 'Cross-Shard (2)', 'Cross-Shard (3)', 'Cross-Shard (4+)'],
+            values: [1.0, 1.5, 2.0, 2.5],
+            colors: [CHART_COLORS.sharding, CHART_COLORS.hybrid, CHART_COLORS.layer2, CHART_COLORS.comparison]
+        };
+        ChartManager.createTPSComparisonChart('crossShardLatencyChart', latencyData);
+        
+        // Initialize sharding calculator
+        const shardSlider = new SliderHandler('shardCount', 'shardCountDisplay',
+            Utils.debounce(calculateShardingPerformance, 500));
+        const tpsSlider = new SliderHandler('tpsPerShard', 'tpsPerShardDisplay',
+            Utils.debounce(calculateShardingPerformance, 500));
+        
+        async function calculateShardingPerformance() {
+            const numShards = shardSlider.getValue();
+            const tpsPerShard = tpsSlider.getValue();
+            const totalTPS = numShards * tpsPerShard;
+            
+            const results = await API.calculateSharding(1000000, numShards, tpsPerShard);
+            
+            const resultsHtml = `
+                <div class="grid grid-3">
+                    <div class="stat-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-label">Total Throughput</div>
+                        <div class="stat-value">${Utils.formatNumber(totalTPS, 0)}</div>
+                        <div class="stat-label">TPS</div>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="stat-label">vs. Ethereum Base</div>
+                        <div class="stat-value">${(totalTPS / 15).toFixed(0)}x</div>
+                        <div class="stat-label">Improvement</div>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-label">Cross-Shard</div>
+                        <div class="stat-value">${results.cross_shard_percentage.toFixed(1)}%</div>
+                        <div class="stat-label">of Transactions</div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info mt-3">
+                    <strong>Performance Analysis:</strong> With ${numShards} shards at ${tpsPerShard} TPS each, 
+                    your network can process ${Utils.formatNumber(totalTPS, 0)} transactions per second—
+                    ${(totalTPS / 15).toFixed(1)}x faster than Ethereum's base layer.
+                </div>
+            `;
+            
+            document.getElementById('shardingResults').innerHTML = resultsHtml;
+        }
+        
+        // Initial calculation
+        calculateShardingPerformance();
+        
+    } catch (error) {
+        console.error('Error loading sharding data:', error);
+        showNotification('Error loading data', 'error');
+    }
+});
+</script>
+{% endblock %}

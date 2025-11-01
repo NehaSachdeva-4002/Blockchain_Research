@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}Layer 2 Solutions - Blockchain Scalability{% endblock %}
+
+{% block content %}
+<div class="hero" style="padding: 2rem;">
+    <div class="container">
+        <h1>Layer 2 Scalability Solutions</h1>
+        <p class="subtitle">Off-chain computation with on-chain security guarantees</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Overview -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">What is Layer 2?</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                Layer 2 solutions are protocols built on top of the base blockchain (Layer 1) that handle transactions 
+                off-chain while maintaining the security guarantees of the underlying blockchain. By processing transactions 
+                off-chain and only submitting compressed data or proofs to Layer 1, these solutions achieve significant 
+                throughput improvements and cost reductions.
+            </p>
+            <div class="alert alert-info mt-3">
+                <strong>Key Principle:</strong> Move computation off-chain, keep data and security on-chain.
+            </div>
+        </div>
+    </div>
+
+    <!-- Layer 2 Types -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Types of Layer 2 Solutions</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="stat-card" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Optimistic Rollups</h3>
+                    <div class="stat-value" style="font-size: 2rem;">2,000-4,000</div>
+                    <div class="stat-label">TPS</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                        Assume transactions valid, verify via fraud proofs
+                    </p>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">ZK Rollups</h3>
+                    <div class="stat-value" style="font-size: 2rem;">2,000-3,000</div>
+                    <div class="stat-label">TPS</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                        Cryptographic proofs verify all transactions
+                    </p>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Sidechains</h3>
+                    <div class="stat-value" style="font-size: 2rem;">7,000+</div>
+                    <div class="stat-label">TPS</div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                        Independent chains with own consensus
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layer 2 Projects Comparison -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Popular Layer 2 Projects</h2>
+            <p class="card-subtitle">Live production implementations</p>
+        </div>
+        <div class="card-body">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Type</th>
+                        <th>TPS</th>
+                        <th>Avg Cost</th>
+                        <th>Finality</th>
+                        <th>Use Cases</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Optimism</strong></td>
+                        <td><span class="badge badge-primary">Optimistic Rollup</span></td>
+                        <td>2,000</td>
+                        <td>$0.10</td>
+                        <td>7 days</td>
+                        <td>DeFi, dApps</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arbitrum</strong></td>
+                        <td><span class="badge badge-primary">Optimistic Rollup</span></td>
+                        <td>4,000</td>
+                        <td>$0.08</td>
+                        <td>7 days</td>
+                        <td>DeFi, NFT marketplaces</td>
+                    </tr>
+                    <tr>
+                        <td><strong>zkSync</strong></td>
+                        <td><span class="badge badge-success">ZK Rollup</span></td>
+                        <td>2,000</td>
+                        <td>$0.05</td>
+                        <td>Instant</td>
+                        <td>Payments, DeFi, Privacy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Starknet</strong></td>
+                        <td><span class="badge badge-success">ZK Rollup</span></td>
+                        <td>3,000</td>
+                        <td>$0.04</td>
+                        <td>Instant</td>
+                        <td>Complex computations, Gaming</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Polygon</strong></td>
+                        <td><span class="badge badge-warning">Sidechain</span></td>
+                        <td>7,000</td>
+                        <td>$0.01</td>
+                        <td>2-3 seconds</td>
+                        <td>DeFi, NFTs, Gaming</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lightning Network</strong></td>
+                        <td><span class="badge badge-warning">Payment Channel</span></td>
+                        <td>1,000,000+</td>
+                        <td>$0.0001</td>
+                        <td>Instant</td>
+                        <td>Micropayments, Remittances</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optimistic vs ZK Rollups -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Optimistic vs ZK Rollups: Deep Dive</h2>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="rollupComparisonChart"></canvas>
+            </div>
+            
+            <div class="grid grid-2 mt-4">
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #8b5cf6;">⚡ Optimistic Rollups</h3>
+                    <p><strong>How it works:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Assume all transactions are valid by default</li>
+                        <li>Anyone can submit a fraud proof during challenge period</li>
+                        <li>7-day withdrawal delay for security</li>
+                        <li>Lower computational overhead</li>
+                    </ul>
+                    <p class="mt-2"><strong>Advantages:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>EVM compatible (easier migration)</li>
+                        <li>Simpler to implement</li>
+                        <li>Mature ecosystem (Optimism, Arbitrum)</li>
+                        <li>Lower proof generation costs</li>
+                    </ul>
+                    <p class="mt-2"><strong>Trade-offs:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>7-day challenge period for withdrawals</li>
+                        <li>Requires active fraud proof watchers</li>
+                        <li>Larger on-chain data footprint</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #6366f1;">🔐 ZK Rollups</h3>
+                    <p><strong>How it works:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Generate cryptographic proofs (SNARKs/STARKs)</li>
+                        <li>Proofs mathematically verify transaction validity</li>
+                        <li>No challenge period needed</li>
+                        <li>Instant finality on Layer 1</li>
+                    </ul>
+                    <p class="mt-2"><strong>Advantages:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Instant withdrawal finality (minutes)</li>
+                        <li>Stronger security guarantees</li>
+                        <li>Smaller on-chain data requirements</li>
+                        <li>Better for privacy applications</li>
+                    </ul>
+                    <p class="mt-2"><strong>Trade-offs:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Higher computational cost for proofs</li>
+                        <li>More complex to implement</li>
+                        <li>EVM compatibility challenges (improving)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cost Savings Visualization -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Cost Savings: 10-100x Reduction</h2>
+            <p class="card-subtitle">Transaction cost comparison over volume</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="costSavingsChart"></canvas>
+            </div>
+            <div class="alert alert-success mt-3">
+                <strong>Real-World Impact:</strong> A DeFi user making 100 transactions per month would pay $2,000 
+                on Ethereum Layer 1 vs. $20-200 on Layer 2 rollups—saving up to $1,980 monthly.
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Calculator -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Layer 2 Performance Calculator</h2>
+            <p class="card-subtitle">Calculate savings based on your usage</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label class="form-label" for="layer2TxVolume">Monthly Transactions</label>
+                    <input type="range" id="layer2TxVolume" class="slider" 
+                           min="10" max="10000" step="10" value="100">
+                    <span class="slider-value" id="layer2TxVolumeDisplay">100</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="layer2GasPrice">Gas Price (Gwei)</label>
+                    <input type="range" id="layer2GasPrice" class="slider" 
+                           min="5" max="100" step="5" value="20">
+                    <span class="slider-value" id="layer2GasPriceDisplay">20</span>
+                </div>
+            </div>
+            
+            <div id="layer2Results" class="mt-4">
+                <!-- Calculator results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Ideal Use Cases for Layer 2</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="card" style="background: #f9fafb;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">🏦 DeFi Protocols</h3>
+                        <p style="font-size: 0.95rem;">
+                            High-frequency trading, lending, and yield farming benefit from low fees and high throughput.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-weight: 600; color: #8b5cf6;">
+                            Examples: Uniswap, Aave, Curve on Optimism/Arbitrum
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f9fafb;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">🎮 Gaming & NFTs</h3>
+                        <p style="font-size: 0.95rem;">
+                            In-game transactions and NFT minting require fast, cheap transfers without sacrificing security.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-weight: 600; color: #8b5cf6;">
+                            Examples: Immutable X, Sorare, Gods Unchained
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f9fafb;">
+                    <div class="card-body">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">💸 Payments</h3>
+                        <p style="font-size: 0.95rem;">
+                            Micropayments and remittances need instant finality and minimal fees for viability.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-weight: 600; color: #8b5cf6;">
+                            Examples: Lightning Network, zkSync payments
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="grid grid-2">
+        <a href="/comparison" class="btn btn-outline" style="padding: 1rem; font-size: 1rem;">
+            ← Back to Comparison
+        </a>
+        <a href="/sharding" class="btn btn-primary" style="padding: 1rem; font-size: 1rem;">
+            Explore Sharding Solutions →
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const metrics = await API.getLayer2Metrics();
+        
+        // Create rollup comparison chart
+        const rollupData = {
+            labels: ['TPS', 'Cost per Tx', 'Withdrawal Time', 'EVM Compatible', 'Security Score'],
+            datasets: [
+                {
+                    label: 'Optimistic Rollup',
+                    data: [3000, 90, 30, 100, 90],
+                    borderColor: CHART_COLORS.layer2,
+                    backgroundColor: CHART_COLORS.gradient.layer2
+                },
+                {
+                    label: 'ZK Rollup',
+                    data: [2500, 95, 100, 70, 95],
+                    borderColor: CHART_COLORS.layer1,
+                    backgroundColor: CHART_COLORS.gradient.layer1
+                }
+            ]
+        };
+        
+        ChartManager.createTrilemmaRadarChart('rollupComparisonChart', {
+            optimistic: { scalability: 85, security: 90, decentralization: 85 },
+            zk: { scalability: 85, security: 95, decentralization: 80 }
+        });
+        
+        // Create cost savings chart
+        const costData = {
+            labels: ['10 Tx', '50 Tx', '100 Tx', '500 Tx', '1000 Tx', '5000 Tx'],
+            layer1: [2, 10, 20, 100, 200, 1000],
+            layer2: [0.02, 0.1, 0.2, 1, 2, 10]
+        };
+        ChartManager.createCostComparisonChart('costSavingsChart', costData);
+        
+        // Initialize Layer 2 calculator
+        const txSlider = new SliderHandler('layer2TxVolume', 'layer2TxVolumeDisplay', 
+            Utils.debounce(calculateLayer2Performance, 500));
+        const gasSlider = new SliderHandler('layer2GasPrice', 'layer2GasPriceDisplay',
+            Utils.debounce(calculateLayer2Performance, 500));
+        
+        async function calculateLayer2Performance() {
+            const txVolume = txSlider.getValue();
+            const gasPrice = gasSlider.getValue();
+            
+            const results = await API.calculateLayer2(txVolume, 100, gasPrice);
+            
+            const resultsHtml = `
+                <div class="grid grid-2">
+                    <div class="card" style="background: #f0f9ff; border: 2px solid #3b82f6;">
+                        <div class="card-body">
+                            <h3 style="color: #1e40af; margin-bottom: 1rem;">Layer 1 (Ethereum)</h3>
+                            <p><strong>Total Cost:</strong> ${Utils.formatCurrency(results.optimistic.l1_cost_gwei / 1000000000)}</p>
+                            <p><strong>Processing Time:</strong> ${(results.optimistic.processing_time_seconds / 60).toFixed(1)} minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="background: #f5f3ff; border: 2px solid #8b5cf6;">
+                        <div class="card-body">
+                            <h3 style="color: #6d28d9; margin-bottom: 1rem;">Layer 2 (Rollup)</h3>
+                            <p><strong>Total Cost:</strong> ${Utils.formatCurrency(results.optimistic.l2_cost_gwei / 1000000000)}</p>
+                            <p><strong>Savings:</strong> <span style="color: #10b981; font-weight: 700;">${results.optimistic.cost_savings_percent.toFixed(2)}%</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-success mt-3">
+                    <strong>💰 You save ${Utils.formatCurrency((results.optimistic.l1_cost_gwei - results.optimistic.l2_cost_gwei) / 1000000000)} 
+                    per month by using Layer 2!</strong>
+                </div>
+            `;
+            
+            document.getElementById('layer2Results').innerHTML = resultsHtml;
+        }
+        
+        // Initial calculation
+        calculateLayer2Performance();
+        
+    } catch (error) {
+        console.error('Error loading Layer 2 data:', error);
+        showNotification('Error loading data', 'error');
+    }
+});
+</script>
+{% endblock %}

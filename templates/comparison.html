@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}Comparison Dashboard - Blockchain Scalability{% endblock %}
+
+{% block content %}
+<div class="hero" style="padding: 2rem;">
+    <div class="container">
+        <h1>Interactive Comparison Dashboard</h1>
+        <p class="subtitle">Compare Layer 2, Sharding, and Hybrid scalability solutions</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Performance Calculator -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Performance Calculator</h2>
+            <p class="card-subtitle">Adjust parameters to see real-time performance comparisons</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label class="form-label" for="txVolumeSlider">Transaction Volume</label>
+                    <input type="range" id="txVolumeSlider" class="slider" 
+                           min="10000" max="10000000" step="10000" value="1000000">
+                    <span class="slider-value" id="txVolumeDisplay">1M</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="shardsSlider">Number of Shards</label>
+                    <input type="range" id="shardsSlider" class="slider" 
+                           min="2" max="128" step="2" value="64">
+                    <span class="slider-value" id="shardsDisplay">64</span>
+                </div>
+            </div>
+            
+            <div id="calculationResults" class="mt-4">
+                <!-- Results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TPS Comparison Chart -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Throughput Comparison (TPS)</h2>
+            <p class="card-subtitle">Transactions per second across different solutions</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="tpsComparisonChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cost Analysis -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Transaction Cost Analysis</h2>
+            <p class="card-subtitle">Average transaction costs and savings</p>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <canvas id="costComparisonChart"></canvas>
+            </div>
+            <div class="alert alert-success mt-3">
+                <strong>Cost Savings:</strong> Layer 2 solutions provide 10-100x reduction in transaction costs 
+                compared to Layer 1, making them ideal for high-frequency use cases like DeFi and NFT trading.
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Comparison Table -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Detailed Feature Comparison</h2>
+        </div>
+        <div class="card-body">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Layer 2 (Rollups)</th>
+                        <th>Sharding</th>
+                        <th>Hybrid Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Throughput</strong></td>
+                        <td>2,000-4,000 TPS</td>
+                        <td>6,400+ TPS (64 shards)</td>
+                        <td>100,000+ TPS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latency</strong></td>
+                        <td>Low (off-chain), Batch delay</td>
+                        <td>Fast per shard, Higher cross-shard</td>
+                        <td>Optimized for both</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security</strong></td>
+                        <td>Inherits L1 security</td>
+                        <td>Distributed, randomized validators</td>
+                        <td>Combined security models</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implementation</strong></td>
+                        <td><span class="badge badge-warning">Medium-High</span></td>
+                        <td><span class="badge badge-danger">Very High</span></td>
+                        <td><span class="badge badge-danger">Very High</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost Efficiency</strong></td>
+                        <td>10-100x reduction</td>
+                        <td>High after upgrade</td>
+                        <td>Optimal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Decentralization</strong></td>
+                        <td>85/100</td>
+                        <td>95/100</td>
+                        <td>88/100</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ecosystem Adoption</strong></td>
+                        <td><span class="badge badge-success">Rapid, Many live projects</span></td>
+                        <td><span class="badge badge-warning">Slow, Incremental rollout</span></td>
+                        <td><span class="badge badge-primary">Emerging</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best Use Case</strong></td>
+                        <td>Immediate scaling, DeFi, NFTs</td>
+                        <td>Long-term ecosystem scaling</td>
+                        <td>Web3 global infrastructure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Security Comparison -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Security Attack Vectors</h2>
+            <p class="card-subtitle">Comparing security risks and mitigation strategies</p>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Layer 2 Risks</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Sequencer Centralization:</strong> <span class="badge badge-warning">Medium Risk</span></li>
+                        <li><strong>Bridge Exploits:</strong> <span class="badge badge-danger">High Impact</span></li>
+                        <li><strong>Fraud Proof Failure:</strong> <span class="badge badge-primary">Low Risk</span></li>
+                        <li><strong>Smart Contract Bugs:</strong> <span class="badge badge-warning">Medium Risk</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Sharding Risks</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Single Shard Takeover:</strong> <span class="badge badge-primary">Low Risk</span></li>
+                        <li><strong>Sybil Attack:</strong> <span class="badge badge-danger">Critical Impact</span></li>
+                        <li><strong>Cross-Shard Replay:</strong> <span class="badge badge-primary">Low Risk</span></li>
+                        <li><strong>Network Partitioning:</strong> <span class="badge badge-danger">Critical Impact</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="grid grid-2">
+        <a href="/layer2" class="card hover-lift text-center" style="text-decoration: none; color: inherit;">
+            <div class="card-body">
+                <h3>🚀 Explore Layer 2 Solutions</h3>
+                <p style="margin-top: 1rem;">Deep dive into rollups, sidechains, and state channels</p>
+            </div>
+        </a>
+        <a href="/sharding" class="card hover-lift text-center" style="text-decoration: none; color: inherit;">
+            <div class="card-body">
+                <h3>⚡ Explore Sharding</h3>
+                <p style="margin-top: 1rem;">Understand parallel processing and cross-shard communication</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize comparison calculator
+    const calculator = new ComparisonCalculator();
+    
+    try {
+        // Load metrics
+        const metrics = await API.getAllMetrics();
+        
+        // Create TPS comparison chart
+        const tpsData = {
+            labels: ['Ethereum Base', 'Optimism', 'Arbitrum', 'zkSync', 'Zilliqa (Sharding)', 'NEAR (Sharding)'],
+            values: [15, 2000, 4000, 2000, 2500, 100000]
+        };
+        ChartManager.createTPSComparisonChart('tpsComparisonChart', tpsData);
+        
+        // Create cost comparison chart
+        const costData = {
+            labels: ['100 Tx', '500 Tx', '1000 Tx', '5000 Tx', '10000 Tx'],
+            layer1: [20, 100, 200, 1000, 2000],
+            layer2: [0.2, 1, 2, 10, 20]
+        };
+        ChartManager.createCostComparisonChart('costComparisonChart', costData);
+        
+    } catch (error) {
+        console.error('Error loading comparison data:', error);
+        showNotification('Error loading data', 'error');
+    }
+});
+</script>
+{% endblock %}
